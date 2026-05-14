@@ -1,4 +1,8 @@
-# Electron + React(TypeScript) 開発環境構築
+[Home](./README.md) > WSL環境構築
+
+---
+
+# WSL + Electron + React(TypeScript) 開発環境構築
 
 ## WSL 起動
 ```powershell
@@ -152,68 +156,78 @@ git add .
 git commit -m "Initial commit"
 ```
 
+### GitHub（プライベートリポジトリ）
+```bash
+## GitHub CLI インストール（未導入の場合）
+
+# sudo apt-get update
+# sudo apt-get install gh
+
+## GitHubログイン
+# gh auth login --git-protocol https
+## ワンタイムパスワードが表示されたら「https://github.com/login/device」をブラウザで開いて入れる 
+
+## GitHubへpush（private）
+# gh repo create "$APP_NAME" \
+#   --private \
+#   --source=. \
+#   --remote=origin \
+#   --push
+
+## 既存リポジトリへpushする場合
+# git remote add origin git@github.com:USER_NAME/REPOSITORY_NAME.git
+# git branch -M main
+# git push -u origin main
+```
+
 ---
 
 ## バージョン確認
-
 ### curl
-
 ```bash
 curl --version | head -n 1 | awk '{print $1, $2, $3}'
 ```
 
 ### nvm
-
 ```bash
 nvm -v | awk '{ print "nvm " $0 }'
 ```
 
 ### Node.js
-
 ```bash
 node --version | awk '{ print "node " $0 }'
 ```
 
 ### pnpm
-
 ```bash
 pnpm -v | awk '{ print "pnpm " $0 }'
 ```
 
 ### corepack
-
 ```bash
 corepack -v | awk '{ print "corepack " $0 }'
 ```
-
 ### electron
-
 ```bash
 node -p "require('electron/package.json').version" | awk '{ print "electron " $0 }'
 ```
 
 ### vite
-
 ```bash
 node -p "require('vite/package.json').version" | awk '{ print "vite " $0 }'
 ```
 
 ### react
-
 ```bash
 node -p "require('react/package.json').version" | awk '{ print "react " $0 }'
 ```
 
 ### typescript
-
 ```bash
 node -p "require('typescript/package.json').version" | awk '{ print "typescript " $0 }'
 ```
 
----
-
 ## バージョン確認（まとめて）
-
 ```bash
 printf "%-12s %s\n" "tool" "version"
 printf "%-12s %s\n" "------------" "------------"
@@ -227,20 +241,3 @@ printf "%-12s %s\n" "vite"       "$(node -p "require('vite/package.json').versio
 printf "%-12s %s\n" "react"      "$(node -p "require('react/package.json').version" 2>/dev/null || echo -)"
 printf "%-12s %s\n" "typescript" "$(node -p "require('typescript/package.json').version" 2>/dev/null || echo -)"
 ```
-
-| 提供元| カテゴリ | パッケージ名 | 役割 |
-| :--- | :--- | :--- | :--- |
-| **Mozilla** | **共通基盤** | libnspr4 | OSの基本機能を抽象化 |
-| **Mozilla** | **暗号通信** | libnss3 | 通信の暗号化と証明書管理 |
-| **GNOME** | **支援技術** | libatk-bridge2.0-0 | 補助技術への情報橋渡し |
-| **GNOME** | **画面描画** | libgtk-3-0 | GUI部品の描画と制御 |
-| **X.Org** | **画面制御** | libxss1 | 離席検知と画面保護制御 |
-| **ALSA** | **音声制御** | libasound2t64 | 音声の入出力制御 |
-
-https://packages.debian.org/ja/sid/libnspr4
-https://packages.debian.org/ja/sid/libnss3
-https://pkgs.alpinelinux.org/package/v3.22/main/x86/libatk-bridge-2.0
-
-
-https://firefox-source-docs.mozilla.org/nspr/index.html
-https://firefox-source-docs.mozilla.org/security/nss/build.html
