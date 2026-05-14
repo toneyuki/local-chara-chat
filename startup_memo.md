@@ -3,6 +3,12 @@
 ---
 
 # WSL + Electron + React(TypeScript) 開発環境構築
+## 概要
+WSL(Ubuntu)上に Node.js / pnpm / Electron / React(TypeScript) の開発環境を構築し、<br>
+Electron + Vite ベースのデスクトップアプリを起動できる状態までセットアップするときの手順<br>
+また、Electron実行時に必要となる Linux GUI 依存ライブラリや、<br>
+pnpm の build script 許可設定も含めて整理。<br>
+さらに、Git / GitHub 初期化手順や .gitignore、各種バージョン確認コマンドもまとめた。
 
 ## WSL 起動
 ```powershell
