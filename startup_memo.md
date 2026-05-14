@@ -233,7 +233,7 @@ node -p "require('react/package.json').version" | awk '{ print "react " $0 }'
 node -p "require('typescript/package.json').version" | awk '{ print "typescript " $0 }'
 ```
 
-## バージョン確認（まとめて）
+### バージョン確認（まとめて）
 ```bash
 printf "%-12s %s\n" "tool" "version"
 printf "%-12s %s\n" "------------" "------------"
@@ -247,3 +247,16 @@ printf "%-12s %s\n" "vite"       "$(node -p "require('vite/package.json').versio
 printf "%-12s %s\n" "react"      "$(node -p "require('react/package.json').version" 2>/dev/null || echo -)"
 printf "%-12s %s\n" "typescript" "$(node -p "require('typescript/package.json').version" 2>/dev/null || echo -)"
 ```
+
+## 発生したこと
+### 起動できるがVS Code内で赤波線が出る
+- 問題
+  - pnpm devで起動は可能
+  - VS Code内で赤波線「index.ts モジュール 'electron' またはそれに対応する型宣言が見つかりません。」等が発生
+  - `tsconfig.node.json`や`index.ts`
+- 原因
+  - VS CodeでWSL拡張機能を未インストールしていなかった
+  - （左下にWSL: Ubuntuが出ていなかった）
+- 解決
+  - VS CodeでWSL拡張機能をインストール
+  - 再度WSL内で`code .`する
