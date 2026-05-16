@@ -40,6 +40,8 @@ source ~/.bashrc
 ```
 
 ### 4. Node.js
+Node.jsはLTS版を使用する。
+
 ```bash
 nvm ls | grep -E 'node.+N/A' && nvm install --lts
 ```
@@ -90,21 +92,29 @@ pnpm rebuild electron
 pnpm rebuild esbuild
 ```
 
-### 9. dev起動
+### 9. Electronバージョン固定
 ```bash
-pnpm dev
+pnpm add -D electron@39.8.10
 ```
 
 ### 10. DB（better-sqlite3）
 ```bash
 pnpm add better-sqlite3
+pnpm add -D @types/better-sqlite3
 
-## エラーとなった場合
-# build script を許可（a -> Enter -> y）
-pnpm approve-builds
+# ネイティブモジュールをElectron向けに再ビルド
+pnpm rebuild better-sqlite3
 
-# 許可後に再install
-pnpm install
+# エラーとなった場合
+sudo apt-get update
+sudo apt-get install -y python3 make g++ pkg-config
+
+pnpm rebuild better-sqlite3
+```
+
+### 11. dev起動
+```bash
+pnpm dev
 ```
 
 ---
@@ -278,3 +288,8 @@ printf "%-12s %s\n" "better-sqlite3" "$(node -p "require('better-sqlite3/package
 - 解決
   - VS CodeでWSL拡張機能をインストール
   - 再度WSL内で`code .`する
+
+### better-sqlite3のビルドエラー
+- Electron 42系では better-sqlite3 のビルドに失敗した
+- Electron 39.8.10 に固定したら `better-sqlite3` の rebuild が成功した
+- `Electron failed to install correctly` が出た場合は `electron/install.js` を直接実行した
