@@ -1,18 +1,11 @@
-// src/renderer/src/App.tsx
+﻿// src/renderer/src/App.tsx
+
+import { Sidebar } from './components/layout/Sidebar'
 
 function App(): React.JSX.Element {
-  async function handleSave(): Promise<void> {
-    console.log(window.api)
-    const result = await window.api.createMessage({
-      role: 'user',
-      content: 'こんにちは！'
-    })
-
-    console.log(result)
-  }
   return (
-    <div>
-      <button onClick={handleSave}>保存テスト</button>
+    <div className="app">
+      <Sidebar />
     </div>
   )
 }

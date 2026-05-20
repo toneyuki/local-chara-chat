@@ -1,6 +1,6 @@
 // src/main/index.ts
 
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, screen } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -8,10 +8,32 @@ import './db/schema'
 import { registerMessageHandlers } from './ipc/messageHandlers'
 
 function createWindow(): void {
+  const displays = screen.getAllDisplays()
+
+  // メインディスプレイ情報を取得
+  const primaryDisplay = screen.getPrimaryDisplay()
+  const secondaryDisplay = displays.find((display) => display.id !== primaryDisplay.id)
+
+  // （開発中はバックディスプレイの右半分に表示）
+  const targetDisplay = secondaryDisplay || primaryDisplay
+  const {
+    x: displayX,
+    y: displayY,
+    width: screenWidth,
+    height: screenHeight
+  } = targetDisplay.workArea
+
+  const windowWidth = Math.floor(screenWidth / 2)
+  const windowHeight = screenHeight
+  const xPosition = displayX + (screenWidth - windowWidth)
+  const yPosition = displayY
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width: windowWidth,
+    height: windowHeight,
+    x: xPosition,
+    y: yPosition,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),

@@ -70,3 +70,41 @@ assets/styles/下
 | `components/_chat-message.scss` | チャットの吹き出し |
 | `components/_chat-input.scss` | チャットの入力欄 |
 | `components/_model-view.scss` | モデルタブのベース |
+
+## 開発の工夫
+### GitHub Issueの利用
+#### タグの追加
+| Name | Description | Color例 |
+|---|---|---|
+| `ui` | 画面UI・デザイン関連 | `#3b82f6` |
+| `electron` | Electron関連実装 | `#47848f` |
+| `llm` | llama.cpp・GGUF・AI関連 | `#8b5cf6` |
+| `feature` | 新機能追加 | `#22c55e` |
+| `investigation` | 技術調査・検証 | `#f59e0b` |
+| `design` | 設計・仕様整理 | `#ec4899` |
+| `refactor` | コード整理・改善 | `#64748b` |
+| `wip` | 作業中 | `#ef4444` |
+元からある以下も利用する
+| `documentation` | README・メモ・設計書 | `#0ea5e9` |
+| `bug` | 不具合修正 | `#dc2626` |
+
+
+<details>
+<summary>ghコマンドによるタグの追加</summary>
+
+```sh
+#!/bin/sh
+gh label create ui --description "画面UI・デザイン関連" --color 3b82f6
+gh label create electron --description "Electron関連実装" --color 47848f
+gh label create llm --description "llama.cpp・GGUF・AI関連" --color 8b5cf6
+gh label create feature --description "新機能追加" --color 22c55e
+gh label create investigation --description "技術調査・検証" --color f59e0b
+gh label create design --description "設計・仕様整理" --color ec4899
+gh label create refactor --description "コード整理・改善" --color 64748b
+gh label create wip --description "作業中" --color ef4444
+```
+- 参考
+  - https://cli.github.com/manual/gh_label_create
+</details>
+
+

@@ -1,0 +1,10 @@
+﻿// src/renderer/src/assets/base/_base.scss
+
+@use './variables' as v;
+
+body {
+  background-color: v.$bg_main;
+  color: v.$text-main;
+
+  font-family: v.$font-family-main;
+}

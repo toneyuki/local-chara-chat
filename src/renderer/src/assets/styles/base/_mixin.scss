@@ -1,3 +1,5 @@
+// src/renderer/src/assets/base/_mixin.scss
+
 @mixin category-theme {
   --theme-deep:   var(--category-color);
   --theme-middle: color-mix(in srgb, var(--category-color) 70%, white);
@@ -78,46 +80,3 @@
   transform: translateY(-50%);
   pointer-events: none;
 }
-
-// ブランドカラー
-$color-primary: #d700d3;
-$color-secondary: #00ccd7;
-$brand-gradient: linear-gradient(125deg, $color-primary, $color-secondary);
-
-// ボタン色
-$btn-color-default: white;
-$btn-color-copy-json: #56cfc5;
-$btn-color-save-preset: #ff6a94;
-$btn-color-import-json: #b8b800;
-$btn-color-clear: #654ea0;
-$btn-color-error: #ff9f43;
-
-// テキストカラー
-$text-main:  #333333;
-$text-sub:   #666666;
-$text-light: #999999;
-$text-code:  #00d787;
-
-
-// 背景・線
-$bg_main: #fafaff;
-$bg_white: #ffffff;
-$border_color: #dddddd;
-$bg-code: #0f172a;
-
-// フォント
-$font-family-title: "Fredoka", "DM Sans", sans-serif;
-$font-family-main: "DM Sans", sans-serif;
-// 文字サイズ
-$font-size-base: 14px;
-$font-size-small: 12px;
-$font-size-large: 18px;
-$font-weight-bold: 600;
-
-// 余白
-$spacing-small: 8px;
-$spacing-middle: 16px;
-$spacing-large: 24px;
-
-// ボタン・パーツの丸み
-$radius-main: 12px;
