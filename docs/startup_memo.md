@@ -58,7 +58,7 @@ npm install --global corepack@latest
 corepack enable pnpm
 ```
 
-### 6. Electron + React + TypeScript + pnpm add -D sass-embedded
+### 6. Electron + React + TypeScript プロジェクト作成
 ```bash
 mkdir -p "$PROJECT_ROOT"
 cd "$PROJECT_ROOT"
@@ -79,36 +79,48 @@ sudo apt-get install -y \
   libasound2t64
 ```
 
-### 8. install
+### 8. 追加パッケージ・Electronバージョン固定
 ```bash
-pnpm install
-
-## エラーとなった場合
-# build script を許可（a -> Enter -> y）
-pnpm approve-builds
-
-# 許可後に再install
-pnpm install
-
-# Electron動作確認
-pnpm exec electron --version
-
-# 念のため
-pnpm rebuild electron
-pnpm rebuild esbuild
-```
-
-### 9. Electronバージョン固定
-```bash
+# Electronのバージョンを固定したい場合
 pnpm add -D electron@39.8.10
-```
 
-### 10. saas-embedded
-```bash
+# SCSSを使う場合
 pnpm add -D sass-embedded
 ```
 
-### 11. DB（better-sqlite3）
+### 9. install
+```bash
+# 依存パッケージをインストール
+pnpm install --ignore-scripts=false
+# pnpmでbuild scriptの承認が必要な場合に実行
+pnpm approve-builds
+# Electron本体が入っているか確認
+pnpm exec electron --version
+# ↑で Electron failed to install correctly が出る場合
+node node_modules/.pnpm/electron@39.8.10/node_modules/electron/install.js
+# 再確認
+pnpm exec electron --version 
+```
+
+#### インストールやり直すとき
+```bash
+# node_modulesを削除して入れ直す
+rm -rf node_modules
+
+# install scriptを有効にして再インストール
+pnpm install --ignore-scripts=false
+
+# build script承認
+pnpm approve-builds
+
+# Electron本体を再配置
+node node_modules/.pnpm/electron@39.8.10/node_modules/electron/install.js
+
+# Electron確認
+pnpm exec electron --version
+```
+
+### 10. DB（better-sqlite3）
 ```bash
 pnpm add better-sqlite3
 pnpm add -D @types/better-sqlite3
@@ -123,7 +135,7 @@ sudo apt-get install -y python3 make g++ pkg-config
 pnpm rebuild better-sqlite3
 ```
 
-### 12. dev起動
+### 11. 起動確認
 ```bash
 pnpm dev
 ```
@@ -288,6 +300,19 @@ printf "%-12s %s\n" "better-sqlite3" "$(node -p "require('better-sqlite3/package
 ```
 
 ## 発生したこと
+### pnpm devで「Missing X server or $DISPLAY」
+VS Codeの設定、モジュールバージョン等はすべて問題なかった
+- 結果
+  - Windows側「WSL Settings」で、オプション機能 > GUIアプリケーションを有効にする がオフになっていた
+
+```sh
+yuuki@TONEWORK:~/projects/local-chara-chat$ pnpm dev
+Already up to date
+Done in 355ms using pnpm v11.1.1
+...
+[1043:0520/230403.175419:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:249] Missing X server or $DISPLAY
+[1043:0520/230403.175571:ERROR:ui/aura/env.cc:257] The platform failed to initialize.  Exiting.
+```
 ### 起動できるがVS Code内で赤波線が出る
 - 問題
   - pnpm devで起動は可能
