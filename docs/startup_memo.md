@@ -1,28 +1,34 @@
-[Home](./README.md) > WSLŠÂ‹«\’z
+ï»¿[Home](../README.md) > é–‹ç™ºç’°å¢ƒæ§‹ç¯‰ãƒ¡ãƒ¢
 
 ---
 
-# WSL + Electron + React(TypeScript) ŠJ”­ŠÂ‹«\’z
-## ŠT—v
-WSL(Ubuntu)ã‚É Node.js / pnpm / Electron / React(TypeScript) ‚ÌŠJ”­ŠÂ‹«‚ğ\’z‚µA<br>
-Electron + Vite ƒx[ƒX‚ÌƒfƒXƒNƒgƒbƒvƒAƒvƒŠ‚ğ‹N“®‚Å‚«‚éó‘Ô‚Ü‚ÅƒZƒbƒgƒAƒbƒv‚·‚é‚Æ‚«‚Ìè‡<br>
-‚Ü‚½AElectronÀs‚É•K—v‚Æ‚È‚é Linux GUI ˆË‘¶ƒ‰ƒCƒuƒ‰ƒŠ‚âA<br>
-pnpm ‚Ì build script ‹–‰Âİ’è‚àŠÜ‚ß‚Ä®—B<br>
-‚³‚ç‚ÉAGit / GitHub ‰Šú‰»è‡‚â .gitignoreAŠeíƒo[ƒWƒ‡ƒ“Šm”FƒRƒ}ƒ“ƒh‚à‚Ü‚Æ‚ß‚½B
+#  é–‹ç™ºç’°å¢ƒæ§‹ç¯‰ãƒ¡ãƒ¢
+## æ¦‚è¦
+ç’°å¢ƒæ§‹ç¯‰ã‚’ä»¥ä¸‹ã§è¡Œã†éš›ã®ãƒ¡ãƒ¢
+- Windows11
+  - WSL(Ubuntu)
+    - Node.js
+    - Electron
+    - Reactï¼ˆTypeScriptï¼‰
+    - Sass
+    - SQLite3ï¼ˆbetter-sqlite3ï¼‰
+    - Linux GUI ä¾å­˜ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+    - Gitï¼ˆHubï¼‰
+    
 
-## WSL ‹N“®
+## WSL èµ·å‹•
 ```powershell
 wsl
 ```
 
-## ƒpƒX
+## ãƒ‘ã‚¹
 ```bash
 read -p "project name? " APP_NAME
 PROJECT_ROOT="$HOME/projects"
 PROJECT_PATH="$PROJECT_ROOT/$APP_NAME"
 ```
 
-## ƒCƒ“ƒXƒg[ƒ‹
+## ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 ### 1. curl
 ```bash
 command -v curl >/dev/null 2>&1 || (sudo apt-get update && sudo apt-get install -y curl)
@@ -40,7 +46,7 @@ source ~/.bashrc
 ```
 
 ### 4. Node.js
-Node.js‚ÍLTS”Å‚ğg—p‚·‚éB
+Node.jsã¯LTSç‰ˆã‚’ä½¿ç”¨ã™ã‚‹ã€‚
 
 ```bash
 nvm ls | grep -E 'node.+N/A' && nvm install --lts
@@ -52,7 +58,7 @@ npm install --global corepack@latest
 corepack enable pnpm
 ```
 
-### 6. Electron + React + TypeScript
+### 6. Electron + React + TypeScript + pnpm add -D sass-embedded
 ```bash
 mkdir -p "$PROJECT_ROOT"
 cd "$PROJECT_ROOT"
@@ -60,8 +66,8 @@ pnpm create @quick-start/electron "$APP_NAME" --template react-ts
 cd "$PROJECT_PATH"
 ```
 
-### 7. Electron GUIˆË‘¶ƒ‰ƒCƒuƒ‰ƒŠ
-iWSLã‚ÌLinux‚Å“®ì‚³‚¹‚é‚É‚ÍLinuxŠÂ‹«‚ÅGUIƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ“®ì‚³‚¹‚éˆË‘¶ƒpƒbƒP[ƒW‚ª•K—vj
+### 7. Electron GUIä¾å­˜ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+ï¼ˆWSLä¸Šã®Linuxã§å‹•ä½œã•ã›ã‚‹ã«ã¯Linuxç’°å¢ƒã§GUIã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å‹•ä½œã•ã›ã‚‹ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãŒå¿…è¦ï¼‰
 ```bash
 sudo apt-get update
 sudo apt-get install -y \
@@ -77,61 +83,66 @@ sudo apt-get install -y \
 ```bash
 pnpm install
 
-## ƒGƒ‰[‚Æ‚È‚Á‚½ê‡
-# build script ‚ğ‹–‰Âia -> Enter -> yj
+## ã‚¨ãƒ©ãƒ¼ã¨ãªã£ãŸå ´åˆ
+# build script ã‚’è¨±å¯ï¼ˆa -> Enter -> yï¼‰
 pnpm approve-builds
 
-# ‹–‰ÂŒã‚ÉÄinstall
+# è¨±å¯å¾Œã«å†install
 pnpm install
 
-# Electron“®ìŠm”F
+# Electronå‹•ä½œç¢ºèª
 pnpm exec electron --version
 
-# ”O‚Ì‚½‚ß
+# å¿µã®ãŸã‚
 pnpm rebuild electron
 pnpm rebuild esbuild
 ```
 
-### 9. Electronƒo[ƒWƒ‡ƒ“ŒÅ’è
+### 9. Electronãƒãƒ¼ã‚¸ãƒ§ãƒ³å›ºå®š
 ```bash
 pnpm add -D electron@39.8.10
 ```
 
-### 10. DBibetter-sqlite3j
+### 10. saas-embedded
+```bash
+pnpm add -D sass-embedded
+```
+
+### 11. DBï¼ˆbetter-sqlite3ï¼‰
 ```bash
 pnpm add better-sqlite3
 pnpm add -D @types/better-sqlite3
 
-# ƒlƒCƒeƒBƒuƒ‚ƒWƒ…[ƒ‹‚ğElectronŒü‚¯‚ÉÄƒrƒ‹ƒh
+# ãƒã‚¤ãƒ†ã‚£ãƒ–ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’Electronå‘ã‘ã«å†ãƒ“ãƒ«ãƒ‰
 pnpm rebuild better-sqlite3
 
-# ƒGƒ‰[‚Æ‚È‚Á‚½ê‡
+# ã‚¨ãƒ©ãƒ¼ã¨ãªã£ãŸå ´åˆ
 sudo apt-get update
 sudo apt-get install -y python3 make g++ pkg-config
 
 pnpm rebuild better-sqlite3
 ```
 
-### 11. dev‹N“®
+### 12. devèµ·å‹•
 ```bash
 pnpm dev
 ```
 
 ---
 
-## ‚»‚Ì‘¼
+## ãã®ä»–
 ### gitignore
-#### Ql
+#### å‚è€ƒ
 https://www.electronjs.org/ja/docs/latest/tutorial/tutorial-first-app<br>
-«<br>
-ˆÈ‰º‚ğgitignore‚Ö<br>
+â†“<br>
+ä»¥ä¸‹ã‚’gitignoreã¸<br>
 https://github.com/github/gitignore/blob/main/Node.gitignore
 ```bash
 cd "$PROJECT_PATH"
 curl -L https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore -o .gitignore
 ```
 
-node_modules“™‚àŠO‚·
+node_modulesç­‰ã‚‚å¤–ã™
 ```bash
 cat <<'EOF' >> .gitignore
 
@@ -161,48 +172,48 @@ temp/
 EOF
 ```
 
-| •ª—Ş | ‘ÎÛ | ——R |
+| åˆ†é¡ | å¯¾è±¡ | ç†ç”± |
 |---|---|---|
-| Electron | `dist-electron` | Electronƒrƒ‹ƒh‚Ì¶¬ƒtƒ@ƒCƒ‹B–ˆ‰ñÄ¶¬‚³‚ê‚é |
-| Electron | `out/` | ƒrƒ‹ƒh¬‰Ê•¨‚âo—Íƒtƒ@ƒCƒ‹Bƒ\[ƒXƒR[ƒh‚©‚çÄ¶¬‚Å‚«‚é |
-| OS | `.DS_Store` | macOS‚ª©“®¶¬‚·‚éŠÇ—ƒtƒ@ƒCƒ‹ |
-| OS | `Thumbs.db` | Windows‚ª©“®¶¬‚·‚éƒTƒ€ƒlƒCƒ‹ƒLƒƒƒbƒVƒ… |
-| IDE | `.vscode/` | ƒGƒfƒBƒ^ŒÂlİ’è‚ªŠÜ‚Ü‚ê‚éê‡‚ª‚ ‚é |
-| IDE | `.idea/` | JetBrainsŒnIDE‚ÌŒÂlİ’è‚ªŠÜ‚Ü‚ê‚é |
-| Local LLM / model files | `models/` | Local LLMƒ‚ƒfƒ‹”z’u—pB—e—Ê‚ª”ñí‚É‘å‚«‚­‚È‚é |
-| Local LLM / model files | `*.gguf` | GGUFŒ`®‚ÌLLMƒ‚ƒfƒ‹–{‘ÌB”GB‚É‚È‚éê‡‚ª‚ ‚é |
-| sqlite | `*.sqlite` | ƒ[ƒJƒ‹DBƒtƒ@ƒCƒ‹BŠÂ‹«ˆË‘¶ƒf[ƒ^‚ğŠÜ‚Ş |
-| sqlite | `*.db` | ƒ[ƒJƒ‹DBƒtƒ@ƒCƒ‹BÀsƒf[ƒ^‚ª•Û‘¶‚³‚ê‚é |
-| temp | `tmp/` | ˆêƒtƒ@ƒCƒ‹•Û‘¶—pBíœ‚µ‚Ä‚àÄ¶¬‰Â”\ |
-| temp | `temp/` | ˆêƒtƒ@ƒCƒ‹•Û‘¶—pBÀs’†‚Ì‚İ•K—v‚Èê‡‚ª‘½‚¢ |
+| Electron | `dist-electron` | Electronãƒ“ãƒ«ãƒ‰æ™‚ã®ç”Ÿæˆãƒ•ã‚¡ã‚¤ãƒ«ã€‚æ¯å›å†ç”Ÿæˆã•ã‚Œã‚‹ |
+| Electron | `out/` | ãƒ“ãƒ«ãƒ‰æˆæœç‰©ã‚„å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã€‚ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰å†ç”Ÿæˆã§ãã‚‹ |
+| OS | `.DS_Store` | macOSãŒè‡ªå‹•ç”Ÿæˆã™ã‚‹ç®¡ç†ãƒ•ã‚¡ã‚¤ãƒ« |
+| OS | `Thumbs.db` | WindowsãŒè‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚µãƒ ãƒã‚¤ãƒ«ã‚­ãƒ£ãƒƒã‚·ãƒ¥ |
+| IDE | `.vscode/` | ã‚¨ãƒ‡ã‚£ã‚¿å€‹äººè¨­å®šãŒå«ã¾ã‚Œã‚‹å ´åˆãŒã‚ã‚‹ |
+| IDE | `.idea/` | JetBrainsç³»IDEã®å€‹äººè¨­å®šãŒå«ã¾ã‚Œã‚‹ |
+| Local LLM / model files | `models/` | Local LLMãƒ¢ãƒ‡ãƒ«é…ç½®ç”¨ã€‚å®¹é‡ãŒéå¸¸ã«å¤§ãããªã‚‹ |
+| Local LLM / model files | `*.gguf` | GGUFå½¢å¼ã®LLMãƒ¢ãƒ‡ãƒ«æœ¬ä½“ã€‚æ•°GBã«ãªã‚‹å ´åˆãŒã‚ã‚‹ |
+| sqlite | `*.sqlite` | ãƒ­ãƒ¼ã‚«ãƒ«DBãƒ•ã‚¡ã‚¤ãƒ«ã€‚ç’°å¢ƒä¾å­˜ãƒ‡ãƒ¼ã‚¿ã‚’å«ã‚€ |
+| sqlite | `*.db` | ãƒ­ãƒ¼ã‚«ãƒ«DBãƒ•ã‚¡ã‚¤ãƒ«ã€‚å®Ÿè¡Œæ™‚ãƒ‡ãƒ¼ã‚¿ãŒä¿å­˜ã•ã‚Œã‚‹ |
+| temp | `tmp/` | ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜ç”¨ã€‚å‰Šé™¤ã—ã¦ã‚‚å†ç”Ÿæˆå¯èƒ½ |
+| temp | `temp/` | ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜ç”¨ã€‚å®Ÿè¡Œä¸­ã®ã¿å¿…è¦ãªå ´åˆãŒå¤šã„ |
 
 
-### Git ‰Šú‰»
+### Git åˆæœŸåŒ–
 ```bash
 git init
 git add .
 git commit -m "Initial commit"
 ```
 
-### GitHubiƒvƒ‰ƒCƒx[ƒgƒŠƒ|ƒWƒgƒŠj
+### GitHubï¼ˆãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆãƒªãƒã‚¸ãƒˆãƒªï¼‰
 ```bash
-## GitHub CLI ƒCƒ“ƒXƒg[ƒ‹i–¢“±“ü‚Ìê‡j
+## GitHub CLI ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ï¼ˆæœªå°å…¥ã®å ´åˆï¼‰
 
 # sudo apt-get update
 # sudo apt-get install gh
 
-## GitHubƒƒOƒCƒ“
+## GitHubãƒ­ã‚°ã‚¤ãƒ³
 # gh auth login --git-protocol https
-## ƒƒ“ƒ^ƒCƒ€ƒpƒXƒ[ƒh‚ª•\¦‚³‚ê‚½‚çuhttps://github.com/login/devicev‚ğƒuƒ‰ƒEƒU‚ÅŠJ‚¢‚Ä“ü‚ê‚é 
+## ãƒ¯ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒè¡¨ç¤ºã•ã‚ŒãŸã‚‰ã€Œhttps://github.com/login/deviceã€ã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§é–‹ã„ã¦å…¥ã‚Œã‚‹ 
 
-## GitHub‚Öpushiprivatej
+## GitHubã¸pushï¼ˆprivateï¼‰
 # gh repo create "$APP_NAME" \
 #   --private \
 #   --source=. \
 #   --remote=origin \
 #   --push
 
-## Šù‘¶ƒŠƒ|ƒWƒgƒŠ‚Öpush‚·‚éê‡
+## æ—¢å­˜ãƒªãƒã‚¸ãƒˆãƒªã¸pushã™ã‚‹å ´åˆ
 # git remote add origin git@github.com:USER_NAME/REPOSITORY_NAME.git
 # git branch -M main
 # git push -u origin main
@@ -210,7 +221,7 @@ git commit -m "Initial commit"
 
 ---
 
-## ƒo[ƒWƒ‡ƒ“Šm”F
+## ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç¢ºèª
 ### curl
 ```bash
 curl --version | head -n 1 | awk '{print $1, $2, $3}'
@@ -260,7 +271,7 @@ node -p "require('typescript/package.json').version" | awk '{ print "typescript 
 node -p "require('better-sqlite3/package.json').version"
 ```
 
-### ƒo[ƒWƒ‡ƒ“Šm”Fi‚Ü‚Æ‚ß‚Äj
+### ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç¢ºèªï¼ˆã¾ã¨ã‚ã¦ï¼‰
 ```bash
 printf "%-12s %s\n" "tool" "version"
 printf "%-12s %s\n" "------------" "------------"
@@ -276,20 +287,20 @@ printf "%-12s %s\n" "typescript" "$(node -p "require('typescript/package.json').
 printf "%-12s %s\n" "better-sqlite3" "$(node -p "require('better-sqlite3/package.json').version" 2>/dev/null || echo -)"
 ```
 
-## ”­¶‚µ‚½‚±‚Æ
-### ‹N“®‚Å‚«‚é‚ªVS Code“à‚ÅÔ”gü‚ªo‚é
-- –â‘è
-  - pnpm dev‚Å‹N“®‚Í‰Â”\
-  - VS Code“à‚ÅÔ”güuindex.ts ƒ‚ƒWƒ…[ƒ‹ 'electron' ‚Ü‚½‚Í‚»‚ê‚É‘Î‰‚·‚éŒ^éŒ¾‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñBv“™‚ª”­¶
-  - `tsconfig.node.json`‚â`index.ts`
-- Œ´ˆö
-  - VS Code‚ÅWSLŠg’£‹@”\‚ğ–¢ƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚È‚©‚Á‚½
-  - i¶‰º‚ÉWSL: Ubuntu‚ªo‚Ä‚¢‚È‚©‚Á‚½j
-- ‰ğŒˆ
-  - VS Code‚ÅWSLŠg’£‹@”\‚ğƒCƒ“ƒXƒg[ƒ‹
-  - Ä“xWSL“à‚Å`code .`‚·‚é
+## ç™ºç”Ÿã—ãŸã“ã¨
+### èµ·å‹•ã§ãã‚‹ãŒVS Codeå†…ã§èµ¤æ³¢ç·šãŒå‡ºã‚‹
+- å•é¡Œ
+  - pnpm devã§èµ·å‹•ã¯å¯èƒ½
+  - VS Codeå†…ã§èµ¤æ³¢ç·šã€Œindex.ts ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ« 'electron' ã¾ãŸã¯ãã‚Œã«å¯¾å¿œã™ã‚‹å‹å®£è¨€ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚ã€ç­‰ãŒç™ºç”Ÿ
+  - `tsconfig.node.json`ã‚„`index.ts`
+- åŸå› 
+  - VS Codeã§WSLæ‹¡å¼µæ©Ÿèƒ½ã‚’æœªã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã„ãªã‹ã£ãŸ
+  - ï¼ˆå·¦ä¸‹ã«WSL: UbuntuãŒå‡ºã¦ã„ãªã‹ã£ãŸï¼‰
+- è§£æ±º
+  - VS Codeã§WSLæ‹¡å¼µæ©Ÿèƒ½ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+  - å†åº¦WSLå†…ã§`code .`ã™ã‚‹
 
-### better-sqlite3‚Ìƒrƒ‹ƒhƒGƒ‰[
-- Electron 42Œn‚Å‚Í better-sqlite3 ‚Ìƒrƒ‹ƒh‚É¸”s‚µ‚½
-- Electron 39.8.10 ‚ÉŒÅ’è‚µ‚½‚ç `better-sqlite3` ‚Ì rebuild ‚ª¬Œ÷‚µ‚½
-- `Electron failed to install correctly` ‚ªo‚½ê‡‚Í `electron/install.js` ‚ğ’¼ÚÀs‚µ‚½
+### better-sqlite3ã®ãƒ“ãƒ«ãƒ‰ã‚¨ãƒ©ãƒ¼
+- Electron 42ç³»ã§ã¯ better-sqlite3 ã®ãƒ“ãƒ«ãƒ‰ã«å¤±æ•—ã—ãŸ
+- Electron 39.8.10 ã«å›ºå®šã—ãŸã‚‰ `better-sqlite3` ã® rebuild ãŒæˆåŠŸã—ãŸ
+- `Electron failed to install correctly` ãŒå‡ºãŸå ´åˆã¯ `electron/install.js` ã‚’ç›´æ¥å®Ÿè¡Œã—ãŸ
