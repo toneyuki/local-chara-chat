@@ -4,3 +4,12 @@
 @use './base/variables';
 @use './base/mixin';
 @use './base/base';
+
+@use './layout/app';
+@use './layout/sidebar';
+@use './layout/main';
+
+@use './components/sidebar-header';
+@use './components/sidebar-search';
+@use './components/character-card';
+@use './components/sidebar-footer';

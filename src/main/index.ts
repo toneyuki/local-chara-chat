@@ -14,7 +14,7 @@ function createWindow(): void {
   const primaryDisplay = screen.getPrimaryDisplay()
   const secondaryDisplay = displays.find((display) => display.id !== primaryDisplay.id)
 
-  // （開発中はバックディスプレイの右半分に表示）
+  // （開発中はバックディスプレイの右上半分に表示）
   const targetDisplay = secondaryDisplay || primaryDisplay
   const {
     x: displayX,
@@ -24,7 +24,7 @@ function createWindow(): void {
   } = targetDisplay.workArea
 
   const windowWidth = Math.floor(screenWidth / 2)
-  const windowHeight = screenHeight
+  const windowHeight = Math.floor(screenHeight / 2)
   const xPosition = displayX + (screenWidth - windowWidth)
   const yPosition = displayY
 

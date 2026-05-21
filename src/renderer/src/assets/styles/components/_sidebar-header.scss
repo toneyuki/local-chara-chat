@@ -1,0 +1,30 @@
+// src/renderer/src/assets/styles/components/_sidebar-header
+
+@use "../base/variables" as v;
+
+.sidebar__header {
+  display: flex;
+  padding: 8px 0px;
+  align-items: center;
+  gap: 5px;
+
+  &-logo {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    margin-left: 10px;
+
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, v.$brand-primary, v.$brand-secondary);
+    border-radius: 10px;
+
+    font-size: 25px;
+    font-weight: 200;
+    color: #FFF;
+  }
+
+  &-title {
+    font-size: 15px;
+  }
+}

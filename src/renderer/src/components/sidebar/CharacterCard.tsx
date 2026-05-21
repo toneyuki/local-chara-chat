@@ -16,7 +16,9 @@ export function CharacterCard({
       type="button"
       className={active ? 'character-card character-card--active' : 'character-card'}
     >
-      <div className="character-card__icon">?</div>
+      <div className="character-card__icon">
+        <span className="material-symbols-outlined">smart_toy</span>
+      </div>
 
       <div className="character-card__body">
         <div className="character-card__name">{name}</div>

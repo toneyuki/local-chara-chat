@@ -3,8 +3,10 @@
 export function SidebarSearch(): React.JSX.Element {
   return (
     <div className="sidebar__search">
-      <span className="sidebar__search-icon">🔎</span>
-      <input className="sidebar__search-input" type="text" placeholder="キャラクターを検索..." />
+      <div className="sidebar__search-box">
+        <span className="material-symbols-outlined sidebar__search-icon">search</span>
+        <input className="sidebar__search-input" type="text" placeholder="キャラクターを検索..." />
+      </div>
     </div>
   )
 }

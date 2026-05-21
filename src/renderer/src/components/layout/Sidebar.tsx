@@ -1,10 +1,9 @@
 ﻿// src/renderer/src/components/layout/Sidebar.tsx
 
-import { SidebarHeader } from "../sidebar/SidebarHeader"
-import { SidebarSearch } from "../sidebar/SidebarSearch"
-import { CharacterList } from "../sidebar/CharacterList"
-import { SidebarFooter } from "../sidebar/SidebarFooter"
-
+import { SidebarHeader } from '../sidebar/SidebarHeader'
+import { SidebarSearch } from '../sidebar/SidebarSearch'
+import { CharacterList } from '../sidebar/CharacterList'
+import { SidebarFooter } from '../sidebar/SidebarFooter'
 
 const characters = [
   { id: 1, name: 'ルナ', tags: ['親切', '友好的'], active: true },

@@ -1,5 +1,7 @@
 // src/renderer/src/assets/base/_mixin.scss
 
+@use "./variables" as v;
+
 @mixin category-theme {
   --theme-deep:   var(--category-color);
   --theme-middle: color-mix(in srgb, var(--category-color) 70%, white);
@@ -15,27 +17,13 @@
 }
 
 @mixin control-base {
-  min-height: 40px;
-  padding: 0 14px;
-
-  border-radius: 12px;
-  border: 1px solid $border_color;
-
-  font-family: $font-family-main;
-  font-size: 14px;
-
+  border: 1px solid v.$border-color;
+  font-family: v.$font-family-main;
   transition: 0.2s ease;
 }
 
 @mixin button-base {
   @include control-base;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  background-color: $btn-color-default;
 
   cursor: pointer;
   text-decoration: none;
@@ -48,7 +36,6 @@
 
   &:hover {
     transform: scale(1.01);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
   }
 
   &:active {

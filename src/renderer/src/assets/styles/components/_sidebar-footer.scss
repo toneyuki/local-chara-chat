@@ -1,0 +1,24 @@
+﻿// src/renderer/src/assets/styles/components/_sidebar-footer.scss
+
+@use '../base/variables' as v;
+
+.sidebar__footer {
+  display: flex;
+  align-items: center;
+
+  padding: 5px 10px;
+  border: 1px solid v.$border-color;
+  
+  &-button {
+    padding: 8px 70px;
+
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, v.$brand-primary, v.$brand-secondary);
+
+    color: #fff;
+    font-size: x-small;
+    font-weight: 400;
+  } 
+}
+

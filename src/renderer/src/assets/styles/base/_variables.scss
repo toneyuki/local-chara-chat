@@ -1,9 +1,8 @@
 ﻿// src/renderer/src/assets/base/_variables.scss
 
 // ブランドカラー
-$brand-primary: #d700d3;
-$brand-secondary: #00ccd7;
-$brand-gradient: linear-gradient(125deg, $brand-primary, $brand-secondary);
+$brand-primary: #9b02be;
+$brand-secondary: #00b5bf;
 
 // ボタン色
 $btn-color-default: white;
@@ -15,7 +14,7 @@ $btn-color-error: #ff9f43;
 
 // テキストカラー
 $text-main:  #ffffff;
-$text-sub:   #666666;
+$text-sub:   #bababa;
 $text-light: #999999;
 $text-success:  #00d787;
 $text-error:  #bc0202;
@@ -23,12 +22,14 @@ $text-error:  #bc0202;
 
 // 背景・線
 $bg_main: #05051a;
-$border_color: #dddddd;
+$border-color: #292232;
+$border-color-active: #5b25a2;
+
 $bg-code: #0f172a;
 
 // フォント
-$font-family-title: "Fredoka", "Noto Sans JP", "DM Sans", sans-serif;
-$font-family-main: "DM Sans", "Noto Sans JP", sans-serif;
+$font-family-title: "Noto Sans JP", "Fredoka", "DM Sans", sans-serif;
+$font-family-main: "Noto Sans JP", "DM Sans", sans-serif;
 
 // 文字サイズ
 $font-size-base: 14px;
