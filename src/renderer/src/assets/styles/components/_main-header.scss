@@ -1,0 +1,25 @@
+// src/renderer/src/assets/styles/components/_main-header.scss
+
+@use '../base/variables' as v;
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  padding: 12px 10px;
+  gap: 5px;
+  border: 1px solid v.$border-color;
+
+  &__character-icon {
+    font-size: medium;
+    font-weight: 300;
+    color: #b174c3;
+  }
+
+  &__character-name {
+    font-size:smaller;
+    font-weight: 600;
+    color: v.$text-main; 
+  }
+}

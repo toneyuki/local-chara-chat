@@ -1,0 +1,59 @@
+// src/renderer/src/assets/styles/components/_main-navigator.scss
+
+@use '../base/variables' as v;
+
+.main-navigator {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid v.$border-color;
+
+  &__tab {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    gap: 4px;
+
+    cursor: pointer;
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+
+    &--active {
+      border-bottom: 1px solid #0ec7e8;
+
+      .main-navigator__tab-icon {
+        color: v.$text-main
+      }
+      .main-navigator__tab-label {
+        color: v.$text-main
+      }
+    }
+
+    &-icon {
+      font-size: large;
+      font-weight: 200;
+      color: v.$text-sub;
+    }
+
+    &-label {
+      font-size: x-small;
+      font-weight: 400;
+      color: v.$text-sub;
+    }
+  }
+}
+
+// <div className="main-navigator">
+//   {tabs.map((tab) => {
+//     const activeClass = tab.active ? 'main-navigator__tab--active' : ''
+//     return (
+//       <div key={tab.id} className={`main-navigator__tab ${activeClass}`}>
+//         <span className="material-symbols-outlined main-navigator__tab-icon">{tab.icon}</span>
+//         <span className=" main-navigator__tab-label">{tab.label}</span>
+//       </div>
+//     )
+//   })}
+// </div>

@@ -5,13 +5,9 @@ import { SidebarSearch } from '../sidebar/SidebarSearch'
 import { CharacterList } from '../sidebar/CharacterList'
 import { SidebarFooter } from '../sidebar/SidebarFooter'
 
-const characters = [
-  { id: 1, name: 'ルナ', tags: ['親切', '友好的'], active: true },
-  { id: 2, name: 'ノヴァ', tags: ['創造的', '芸術的'], active: false },
-  { id: 3, name: 'アトラス', tags: ['分析的', '論理的'], active: false }
-]
+import { CharacterListProps } from '@renderer/types/character'
 
-export function Sidebar(): React.JSX.Element {
+export function Sidebar({ characters }: CharacterListProps): React.JSX.Element {
   return (
     <aside className="sidebar">
       <SidebarHeader />

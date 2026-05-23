@@ -2,16 +2,7 @@
 
 import { CharacterCard } from './CharacterCard'
 
-type Character = {
-  id: number
-  name: string
-  tags: string[]
-  active: boolean
-}
-
-type CharacterListProps = {
-  characters: Character[]
-}
+import { CharacterListProps } from '@renderer/types/character'
 
 export function CharacterList({ characters }: CharacterListProps): React.JSX.Element {
   return (
